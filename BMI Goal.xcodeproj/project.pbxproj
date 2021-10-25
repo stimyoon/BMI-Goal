@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9149C47D24451DAD008C794C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149C47C24451DAD008C794C /* ContentView.swift */; };
 		916C0EE7243FB019000468F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EE6243FB019000468F7 /* AppDelegate.swift */; };
 		916C0EE9243FB019000468F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EE8243FB019000468F7 /* SceneDelegate.swift */; };
 		916C0EEC243FB019000468F7 /* BMI_Goal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EEA243FB019000468F7 /* BMI_Goal.xcdatamodeld */; };
-		916C0EEE243FB019000468F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EED243FB019000468F7 /* ContentView.swift */; };
 		916C0EF0243FB01D000468F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916C0EEF243FB01D000468F7 /* Assets.xcassets */; };
 		916C0EF3243FB01D000468F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916C0EF2243FB01D000468F7 /* Preview Assets.xcassets */; };
 		916C0EF6243FB01D000468F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916C0EF4243FB01D000468F7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9149C47C24451DAD008C794C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		916C0EE3243FB019000468F7 /* BMI Goal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI Goal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916C0EE6243FB019000468F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916C0EE8243FB019000468F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		916C0EEB243FB019000468F7 /* BMI_Goal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMI_Goal.xcdatamodel; sourceTree = "<group>"; };
-		916C0EED243FB019000468F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		916C0EEF243FB01D000468F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		916C0EF2243FB01D000468F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		916C0EF5243FB01D000468F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			children = (
 				916C0EE6243FB019000468F7 /* AppDelegate.swift */,
 				916C0EE8243FB019000468F7 /* SceneDelegate.swift */,
-				916C0EED243FB019000468F7 /* ContentView.swift */,
+				9149C47C24451DAD008C794C /* ContentView.swift */,
 				916C0EEF243FB01D000468F7 /* Assets.xcassets */,
 				916C0EF4243FB01D000468F7 /* LaunchScreen.storyboard */,
 				916C0EF7243FB01D000468F7 /* Info.plist */,
@@ -150,8 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				916C0EE7243FB019000468F7 /* AppDelegate.swift in Sources */,
+				9149C47D24451DAD008C794C /* ContentView.swift in Sources */,
 				916C0EE9243FB019000468F7 /* SceneDelegate.swift in Sources */,
-				916C0EEE243FB019000468F7 /* ContentView.swift in Sources */,
 				916C0EEC243FB019000468F7 /* BMI_Goal.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BMI Goal/Preview Content\"";
 				DEVELOPMENT_TEAM = SGDBJPAB63;
 				ENABLE_PREVIEWS = YES;
@@ -297,10 +298,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoon.BMI-Goal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BMI Goal/Preview Content\"";
 				DEVELOPMENT_TEAM = SGDBJPAB63;
 				ENABLE_PREVIEWS = YES;
@@ -317,10 +320,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoon.BMI-Goal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

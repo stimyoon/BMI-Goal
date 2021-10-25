@@ -24,7 +24,7 @@ struct BmiView: View {
     private var bmi = 0.0
 
     let weightLossPerWkValues = [1.0, 1.5, 2.0, 2.5, 3.0]
-    let bmiTargets = [25.0, 30, 35, 40, 45]
+    let bmiTargets = [25, 30, 35, 40, 45]
 
     var currentBMI: Double{
         let wt = Double(Lbs) ?? 0
@@ -133,21 +133,6 @@ struct BmiView: View {
         
     }
     
-    func TargetBMI(i: Int) -> String{
-        let padLen = 4
-        //if (currentBMI < bmiTarget[i]){
-        let wt = Double(Lbs) ?? 0
-        let strBMITarget = String(format:"%.0f", bmiTargets[i])
-        
-        if (wt <= 0 || currentBMI < bmiTargets[i] ){
-            return (Pad(str: "", length: padLen))
-        }else{
-            return (Pad(str: strBMITarget, length: padLen))
-        }
-        
-//        return (Pad(str: "", length: padLen))
-    }
-    
     func GoalWeight(wtToLoose: Double) -> String{
         let wt = Double(Lbs) ?? 0
         let goalWeight = wt - wtToLoose
@@ -207,7 +192,7 @@ struct BmiView: View {
             return Pad(str: "", length: padLen)
         }
     }
-    
+        
     var body: some View {
         ZStack{
             NavigationView{
@@ -271,44 +256,80 @@ struct BmiView: View {
                         }.pickerStyle(SegmentedPickerStyle())
                         
                         HStack{
-                            HStack{
-                                
-                            }
-                            Text("BMI").frame(maxWidth: .infinity)
-                            Text("Wt").frame(maxWidth: .infinity)
-                            Text("Chg").frame(maxWidth: .infinity)
-                            Text("Wks").frame(maxWidth: .infinity)
-                            Text("Date").frame(maxWidth: .infinity)
-//                            Text("BMI").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("   Wt ").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("Chg").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("   Wks  ").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text(" Date ").font(Font.system(.body, design: .monospaced))
+                            Text("BMI").font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("   Wt ").font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(" #Lost").font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("   Wks  ").font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(" Date ").font(Font.system(.body, design: .monospaced))
                         }
-                        ForEach(bmiTargets.indices, id: \.self){ a in
- //                       ForEach(bmiI() ..< bmiTargets.count){ a in
-                            Group{
-                                HStack {
-                                    Text(" \(self.bmiTargets[a], specifier : "%.0f")")
-                                    Spacer()
-                                    Text(self.GoalWeight(wtToLoose: self.weightToLoose(targetBMI: self.bmiTargets[a]))).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text(self.WtToLoose(targetBMI: self.bmiTargets[a])).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text(self.WksToGo(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text("\(self.FutureDate(numWks: self.numWeeksOfWtLoss(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])))").font(Font.system(.body, design: .monospaced))
-                                }
-                            }
+
+                        HStack {
+                            Text(" 25")
+                            Spacer()
+                            Text(GoalWeight(wtToLoose: weightToLoose(targetBMI: 25))).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WtToLoose(targetBMI: 25)).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WksToGo(targetBMI: 25, weeklyWtLoss: weightLossPerWkValues[index])).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("\(FutureDate(numWks: numWeeksOfWtLoss(targetBMI: 25, weeklyWtLoss: weightLossPerWkValues[index])))").font(Font.system(.body, design: .monospaced))
+                        }
+
+                        HStack {
+                            Text(" 30")
+                            Spacer()
+                            Text(GoalWeight(wtToLoose: weightToLoose(targetBMI: 30))).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WtToLoose(targetBMI: 30)).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WksToGo(targetBMI: 30, weeklyWtLoss: weightLossPerWkValues[index])).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("\(FutureDate(numWks: numWeeksOfWtLoss(targetBMI: 30, weeklyWtLoss: weightLossPerWkValues[index])))").font(Font.system(.body, design: .monospaced))
+                        }
+
+                        HStack {
+                            Text(" 35")
+                            Spacer()
+                            Text(GoalWeight(wtToLoose: weightToLoose(targetBMI: 35))).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WtToLoose(targetBMI: 35)).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WksToGo(targetBMI: 35, weeklyWtLoss: weightLossPerWkValues[index])).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("\(FutureDate(numWks: numWeeksOfWtLoss(targetBMI: 35, weeklyWtLoss: weightLossPerWkValues[index])))").font(Font.system(.body, design: .monospaced))
+                        }
+
+                        HStack {
+                            Text(" 40")
+                            Spacer()
+                            Text(GoalWeight(wtToLoose: weightToLoose(targetBMI: 40))).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WtToLoose(targetBMI: 40)).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WksToGo(targetBMI: 40, weeklyWtLoss: weightLossPerWkValues[index])).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("\(FutureDate(numWks: numWeeksOfWtLoss(targetBMI: 40, weeklyWtLoss: weightLossPerWkValues[index])))").font(Font.system(.body, design: .monospaced))
+                        }
+                        
+                        HStack {
+                            Text(" 45")
+                            Spacer()
+                            Text(GoalWeight(wtToLoose: weightToLoose(targetBMI: 45))).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WtToLoose(targetBMI: 45)).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text(WksToGo(targetBMI: 45, weeklyWtLoss: weightLossPerWkValues[index])).font(Font.system(.body, design: .monospaced))
+                            Spacer()
+                            Text("\(FutureDate(numWks: numWeeksOfWtLoss(targetBMI: 45, weeklyWtLoss: weightLossPerWkValues[index])))").font(Font.system(.body, design: .monospaced))
                         }
                     }//Section End
                    
                 }//Form End
-                    .navigationBarTitle("Goal BMI")
+                    .navigationBarTitle("BMI Goal")
                     .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
                 
             }//NavigationView End
