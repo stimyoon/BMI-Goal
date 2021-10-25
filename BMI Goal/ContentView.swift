@@ -272,9 +272,10 @@ struct BmiView: View {
                         
                         HStack{
                             HStack{
-                                
-                            }
-                            Text("BMI").frame(maxWidth: .infinity)
+                                Text("BMI")
+                                Spacer()
+                            }.frame(maxWidth: .infinity)
+//                            Text("BMI").frame(maxWidth: .infinity)
                             Text("Wt").frame(maxWidth: .infinity)
                             Text("Chg").frame(maxWidth: .infinity)
                             Text("Wks").frame(maxWidth: .infinity)
