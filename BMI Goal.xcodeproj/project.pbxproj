@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C81C3422B90368900EA85FA /* NumberFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81C3412B90368900EA85FA /* NumberFieldView.swift */; };
 		9149C47D24451DAD008C794C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149C47C24451DAD008C794C /* ContentView.swift */; };
 		916C0EE7243FB019000468F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EE6243FB019000468F7 /* AppDelegate.swift */; };
 		916C0EE9243FB019000468F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C0EE8243FB019000468F7 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C81C3412B90368900EA85FA /* NumberFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFieldView.swift; sourceTree = "<group>"; };
 		9149C47C24451DAD008C794C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		916C0EE3243FB019000468F7 /* BMI Goal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI Goal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916C0EE6243FB019000468F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				916C0EE6243FB019000468F7 /* AppDelegate.swift */,
 				916C0EE8243FB019000468F7 /* SceneDelegate.swift */,
 				9149C47C24451DAD008C794C /* ContentView.swift */,
+				4C81C3412B90368900EA85FA /* NumberFieldView.swift */,
 				916C0EEF243FB01D000468F7 /* Assets.xcassets */,
 				916C0EF4243FB01D000468F7 /* LaunchScreen.storyboard */,
 				916C0EF7243FB01D000468F7 /* Info.plist */,
@@ -104,8 +107,9 @@
 		916C0EDB243FB019000468F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Tim Yoon";
 				TargetAttributes = {
 					916C0EE2243FB019000468F7 = {
@@ -151,6 +155,7 @@
 			files = (
 				916C0EE7243FB019000468F7 /* AppDelegate.swift in Sources */,
 				9149C47D24451DAD008C794C /* ContentView.swift in Sources */,
+				4C81C3422B90368900EA85FA /* NumberFieldView.swift in Sources */,
 				916C0EE9243FB019000468F7 /* SceneDelegate.swift in Sources */,
 				916C0EEC243FB019000468F7 /* BMI_Goal.xcdatamodeld in Sources */,
 			);
@@ -196,6 +201,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -206,6 +212,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -256,6 +263,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -266,6 +274,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -294,6 +303,7 @@
 				DEVELOPMENT_TEAM = SGDBJPAB63;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "BMI Goal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +326,7 @@
 				DEVELOPMENT_TEAM = SGDBJPAB63;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "BMI Goal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

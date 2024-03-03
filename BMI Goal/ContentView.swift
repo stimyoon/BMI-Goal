@@ -208,6 +208,10 @@ struct BmiView: View {
         }
     }
     
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
     var body: some View {
         ZStack{
             NavigationView{
@@ -216,42 +220,22 @@ struct BmiView: View {
                         VStack {
                             HStack {
                                 Text("Wt")
-                                TextField(" lbs", text: $Lbs)
-                                    .keyboardType(.numberPad)
-                                    .border(Color.black)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .onReceive(Just(Lbs)) { newValue in
-                                        let filtered = newValue.filter { "0123456789".contains($0) }
-                                        if filtered != newValue {
-                                            self.Lbs = filtered
-                                        }
-                                    }
+                                NumberFieldView(" lbs", text: $Lbs)
 
                                 Text("Ht")
-                                TextField(" feet", text: $Feet)
-                                    .keyboardType(.numberPad)
-                                    .border(Color.black)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .onReceive(Just(Feet)) { newValue in
-                                        let filtered = newValue.filter { "0123456789".contains($0) }
-                                        if filtered != newValue {
-                                            self.Feet = filtered
+                                NumberFieldView(" feet", text: $Feet)
+                                NumberFieldView(" inches", text: $Inches)
+                            }
+                            .toolbar {
+                                ToolbarItem(placement: .keyboard) {
+                                    HStack {
+                                        Spacer()
+                                        Button("Done") {
+                                            dismissKeyboard()
                                         }
                                     }
-
-                                Spacer()
-                                TextField(" inches", text: $Inches)
-                                    .keyboardType(.numberPad)
-                                    .border(Color.black)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .onReceive(Just(Inches)) { newValue in
-                                        let filtered = newValue.filter { "0123456789".contains($0) }
-                                        if filtered != newValue {
-                                            self.Inches = filtered
-                                        }
-                                    }
-                            }//.padding()
-
+                                }
+                            }
                             // Output the calculated BMI Value
                             HStack {
                                 Text("BMI").font(.largeTitle)
@@ -265,46 +249,34 @@ struct BmiView: View {
 
                     Section(header: Text("BMI Goal Projections: Choose weight loss per week.")){
                         Picker("lbs per week", selection: $index){
-                            ForEach(0 ..< weightLossPerWkValues.count){
+                            ForEach(0 ..< weightLossPerWkValues.count, id: \.self){
                                 Text("\(self.weightLossPerWkValues[$0], specifier: "%.1f") lbs")
                             }
                         }.pickerStyle(SegmentedPickerStyle())
                         
                         HStack{
                             HStack{
-                                Text("BMI")
+                                Text("BMI").lineLimit(1).minimumScaleFactor(0.2)
                                 Spacer()
-                            }.frame(maxWidth: .infinity)
-//                            Text("BMI").frame(maxWidth: .infinity)
+                            }.frame(maxWidth: 40)
                             Text("Wt").frame(maxWidth: .infinity)
                             Text("Chg").frame(maxWidth: .infinity)
                             Text("Wks").frame(maxWidth: .infinity)
                             Text("Date").frame(maxWidth: .infinity)
-//                            Text("BMI").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("   Wt ").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("Chg").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text("   Wks  ").font(Font.system(.body, design: .monospaced))
-//                            Spacer()
-//                            Text(" Date ").font(Font.system(.body, design: .monospaced))
                         }
                         ForEach(bmiTargets.indices, id: \.self){ a in
- //                       ForEach(bmiI() ..< bmiTargets.count){ a in
-                            Group{
-                                HStack {
-                                    Text(" \(self.bmiTargets[a], specifier : "%.0f")")
-                                    Spacer()
-                                    Text(self.GoalWeight(wtToLoose: self.weightToLoose(targetBMI: self.bmiTargets[a]))).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text(self.WtToLoose(targetBMI: self.bmiTargets[a])).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text(self.WksToGo(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])).font(Font.system(.body, design: .monospaced))
-                                    Spacer()
-                                    Text("\(self.FutureDate(numWks: self.numWeeksOfWtLoss(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])))").font(Font.system(.body, design: .monospaced))
-                                }
+                            HStack {
+                                Text(" \(self.bmiTargets[a], specifier : "%.0f")")
+                                Spacer()
+                                Text(self.GoalWeight(wtToLoose: self.weightToLoose(targetBMI: self.bmiTargets[a]))).font(Font.system(.body, design: .monospaced))
+                                Spacer()
+                                Text(self.WtToLoose(targetBMI: self.bmiTargets[a])).font(Font.system(.body, design: .monospaced))
+                                Spacer()
+                                Text(self.WksToGo(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])).font(Font.system(.body, design: .monospaced))
+                                Spacer()
+                                Text("\(self.FutureDate(numWks: self.numWeeksOfWtLoss(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])))").font(Font.system(.body, design: .monospaced))
                             }
+                            
                         }
                     }//Section End
                    
