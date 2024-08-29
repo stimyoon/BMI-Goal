@@ -214,19 +214,25 @@ struct BmiView: View {
     
     var body: some View {
         ZStack{
-            NavigationView{
+            NavigationView {
                 Form{
-                    Section(header: Text("Current Statistics")){//Current statistics
+                    Section(header: Text("Current Statistics")){
                         VStack {
                             HStack {
                                 Text("Wt")
                                 NumberFieldView(" lbs", text: $Lbs)
-
+                                
                                 Text("Ht")
                                 NumberFieldView(" feet", text: $Feet)
                                 NumberFieldView(" inches", text: $Inches)
                             }
                             .toolbar {
+                                ToolbarItem(placement: .topBarTrailing) {
+                                    Image("Camilla-Caduceus4")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50)
+                                }
                                 ToolbarItem(placement: .keyboard) {
                                     HStack {
                                         Spacer()
@@ -236,24 +242,25 @@ struct BmiView: View {
                                     }
                                 }
                             }
+                            
                             // Output the calculated BMI Value
                             HStack {
                                 Text("BMI").font(.largeTitle)
                                 Text("\(currentBMI, specifier: "%.1f")")
-                                .font(.largeTitle) // 1 decimal point accuracy
+                                    .font(.largeTitle)
                             }.padding()
-                        }//VStack End
-                    }//Section End
-
+                        }
+                    }
                     
-
-                    Section(header: Text("BMI Goal Projections: Choose weight loss per week.")){
+                    Section(header: Text("Weight loss per week.")){
                         Picker("lbs per week", selection: $index){
                             ForEach(0 ..< weightLossPerWkValues.count, id: \.self){
                                 Text("\(self.weightLossPerWkValues[$0], specifier: "%.1f") lbs")
                             }
                         }.pickerStyle(SegmentedPickerStyle())
-                        
+                    }
+                    
+                    Section(header: Text("Projections")) {
                         HStack{
                             HStack{
                                 Text("BMI").lineLimit(1).minimumScaleFactor(0.2)
@@ -276,10 +283,8 @@ struct BmiView: View {
                                 Spacer()
                                 Text("\(self.FutureDate(numWks: self.numWeeksOfWtLoss(targetBMI: self.bmiTargets[a], weeklyWtLoss: self.weightLossPerWkValues[self.index])))").font(Font.system(.body, design: .monospaced))
                             }
-                            
                         }
                     }//Section End
-                   
                 }//Form End
                     .navigationBarTitle("Goal BMI")
                     .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
@@ -287,10 +292,6 @@ struct BmiView: View {
             }//NavigationView End
 
             VStack {
-                HStack{
-                    Spacer()
-                    Image("Camilla-Caduceus4").resizable().frame(width: 90, height: 90)
-                }.padding()
                 Spacer()
                 Text("By S. Tim Yoon, MD/PhD").font(.system(size: 8, weight: .light, design: .serif)).italic()
             }//End VStack
